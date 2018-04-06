@@ -18,7 +18,25 @@ Route::group(['middleware' => ['web']], function() {
         return view('welcome');
     });
 
-    Auth::routes();
+    // Auth::routes();  // Estas son las que Auth::routes() trae por defecto -----------------------
+    // ubicada en Illuminate\Routing\Router\Auth()
+
+    // Authentication Routes...
+    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    $this->post('login', 'Auth\LoginController@login');
+    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+    // Registration Routes...
+    $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    $this->get('confirmation/{token}', 'Auth\RegisterController@getConfirmation')->name('confirmation');
+    $this->post('register', 'Auth\RegisterController@register');
+
+    // Password Reset Routes...
+    $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+    $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+    $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+    $this->post('password/reset', 'Auth\ResetPasswordController@reset');
+
 
     Route::group(['middleware'=> ['auth']], function() {
 

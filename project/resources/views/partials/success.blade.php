@@ -1,15 +1,13 @@
 @if(Session::has('alert'))
-    <p class="alert alert-danger">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{ Session::get('alert') }}
-    </p>
-
-    <hr>
+    </div>
 @endif
 
 @if (Session::has('success'))
-    <p class="alert alert-success">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ Session::get('success') }}
-    </p>
+    </div>
 
     <hr>
 @endif

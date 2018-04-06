@@ -2,16 +2,14 @@
 
 @section('content')
 
-    <div class="panel-heading">Usuarios</div>
 
-    <div class="panel-body">
+
         @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
         @endif
 
-        You are logged in!
-    </div>
+        You are logged in
 
 @endsection

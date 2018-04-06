@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('api_token', 60)->unique(); // must be in 60 chars
             $table->integer('role_id')->unsigned()->default(3);
             $table->rememberToken();
             $table->timestamps();
