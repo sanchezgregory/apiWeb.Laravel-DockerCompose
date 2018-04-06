@@ -1,0 +1,3 @@
+Dentro de project debe estar el proyecto php, y e docker file lo mapea, en el docker esta la bd.
+
+En mysql-workbench, host: 127.0.0.1  port 33061  BD laravel  user root  no password
